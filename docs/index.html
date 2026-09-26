@@ -8,6 +8,7 @@
   body { font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; max-width: 760px; margin: 0 auto; padding: 24px 20px 60px; line-height: 1.6; color: #1a1a1a; }
   h1 { font-size: 1.8em; margin-bottom: 0.2em; }
   h2 { font-size: 1.3em; margin-top: 2em; border-bottom: 1px solid #ddd; padding-bottom: 0.3em; }
+  h3 { font-size: 1.05em; margin-top: 1.3em; }
   .meta { color: #666; font-size: 0.95em; margin-bottom: 1.5em; }
   table { border-collapse: collapse; width: 100%; margin: 1em 0; }
   th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
@@ -21,25 +22,40 @@
 
 <h1>Privacy Policy</h1>
 <p class="meta"><strong>ObsidianBox Modern</strong><br>
-Last Updated: February 1, 2026<br>
-Effective Date: February 1, 2026</p>
+Last Updated: September 26, 2026<br>
+Effective Date: September 26, 2026</p>
 
 <h2>Introduction</h2>
 <p>ObsidianBox Modern ("we," "our," or "the App") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our Android application.</p>
-<p class="short-version">The short version: We don't collect your data.</p>
+<p class="short-version">The short version: the files, commands, and terminal history you work with never leave your device. We do use Google Firebase for crash reporting, basic usage analytics, and an anti-piracy check, and — if you're not a Pro subscriber or purchaser — Google AdMob to show ads. Full details below.</p>
 
 <h2>Information We Do NOT Collect</h2>
-<p>ObsidianBox Modern is designed with privacy as a core principle. We do <strong>not</strong> collect, store, transmit, or process:</p>
+<p>Regardless of your Pro status, ObsidianBox Modern never collects, stores, transmits, or processes:</p>
 <ul>
-  <li>Personal identification information</li>
-  <li>Device identifiers or hardware IDs</li>
-  <li>Location data</li>
-  <li>Usage analytics or statistics</li>
-  <li>Crash reports (unless you explicitly share them)</li>
-  <li>Browsing history or app usage patterns</li>
-  <li>Contact information</li>
-  <li>Photos, media, or files (beyond what you explicitly process through ObsidianBox commands)</li>
+  <li>Personal identification information (name, email, phone number)</li>
+  <li>Contact information or your contacts list</li>
+  <li>Browsing history</li>
+  <li>Photos, media, or files (beyond what you explicitly process through ObsidianBox commands, which stays on-device)</li>
+  <li>Your precise GPS location — see "Location Permission" below</li>
 </ul>
+
+<h2>Information We Do Collect</h2>
+<h3>Automatically, via Google Firebase (all users)</h3>
+<ul>
+  <li><strong>Crash &amp; error reports</strong> (Firebase Crashlytics): when the app crashes or hits an unexpected error, a report is sent to Firebase containing the stack trace, device model, OS version, app version, and a random installation identifier. This is not tied to your name or email.</li>
+  <li><strong>Basic usage analytics</strong> (Firebase Analytics): standard app events (app opens, screen views) plus a small number of feature-specific events for the Watchdog monitoring feature (e.g. enabled/disabled, pass/fail results). No message content, file contents, or command text is ever included.</li>
+  <li><strong>Performance data</strong> (Firebase Performance Monitoring): app startup time and network request timing, used to catch slow or broken code paths.</li>
+  <li><strong>Anti-piracy verification</strong> (Firebase Cloud Functions + Google Play Integrity API): on startup, a Play Integrity token is sent to a Firebase Cloud Function to confirm the app was installed from a genuine Play Store build. This does not identify you personally.</li>
+  <li><strong>Security blocklist updates</strong> (Firebase Remote Config): the app periodically fetches an updated list of known-malicious plugin IDs. This is a one-way configuration fetch; nothing about your device or usage is required to receive it.</li>
+</ul>
+<h3>Advertising (free users only)</h3>
+<ul>
+  <li>If you are <strong>not</strong> a Pro subscriber or Pro purchaser, ObsidianBox Modern shows interstitial ads via <strong>Google AdMob</strong> on screen transitions (frequency-capped). AdMob uses your device's <strong>Advertising ID</strong> to serve and measure ads — see Google's ad policies: <a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a></li>
+  <li><strong>Pro users (subscription or one-time purchase) never see ads and are excluded from AdMob entirely.</strong></li>
+</ul>
+
+<h2>Location Permission</h2>
+<p>On Android 12 and earlier, reading the name of the Wi-Fi network you're connected to (used in Network Tools) requires the device's Location permission to be granted — this is an Android OS requirement, not something we chose. We do not read, store, or transmit your GPS coordinates; the permission is used only to display the connected Wi-Fi network's name on-device.</p>
 
 <h2>Information That Stays on Your Device</h2>
 <p>The following information is stored <strong>locally on your device only</strong> and is never transmitted:</p>
@@ -63,10 +79,10 @@ Effective Date: February 1, 2026</p>
 <h2>Third-Party Services</h2>
 <h3>Google Play Billing</h3>
 <p>If you purchase Pro features, the transaction is handled entirely by Google Play. We do not have access to your payment information. Google's privacy policy governs that data: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
-<h3>No Analytics</h3>
-<p>We do <strong>not</strong> use Google Analytics, Firebase Analytics, or any other analytics service.</p>
-<h3>No Ads</h3>
-<p>ObsidianBox Modern contains <strong>no advertisements</strong> and therefore no ad-tracking.</p>
+<h3>Google Firebase</h3>
+<p>Crash reporting, analytics, performance monitoring, remote config, and anti-piracy verification (see above) are provided by Google Firebase. Google's privacy policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+<h3>Google AdMob (free users only)</h3>
+<p>Ads are served by Google AdMob (see above). Google's ad-related policies: <a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a></p>
 
 <h2>Permissions Explained</h2>
 <p>ObsidianBox Modern may request the following permissions:</p>
@@ -74,15 +90,16 @@ Effective Date: February 1, 2026</p>
   <tr><th>Permission</th><th>Purpose</th><th>Data Sent</th></tr>
   <tr><td>Root Access</td><td>Execute ObsidianBox commands at system level</td><td>None - all operations are local</td></tr>
   <tr><td>Storage</td><td>Read/write files you explicitly work with</td><td>None - files stay on device</td></tr>
-  <tr><td>Internet</td><td>Check for updates, Pro license verification</td><td>Minimal metadata to Google Play only</td></tr>
+  <tr><td>Location</td><td>Required by Android to read the connected Wi-Fi network name in Network Tools</td><td>None - GPS coordinates are never read or sent</td></tr>
+  <tr><td>Internet</td><td>Check for updates, Pro license verification, Firebase and AdMob services</td><td>See "Information We Do Collect" above</td></tr>
 </table>
 
 <h2>Data Security</h2>
-<p>Since we don't collect your data, there's nothing to secure on our end. All your data remains on your device under your control.</p>
+<p>Files, command history, and preferences you create in the App remain on your device under your control. Data sent to Firebase and AdMob is transmitted and secured under Google's own infrastructure and privacy practices (linked above).</p>
 <p>For on-device security:</p>
 <ul>
   <li>Preferences are stored using Android's secure DataStore</li>
-  <li>No sensitive data is written to logs</li>
+  <li>No sensitive data (purchase tokens, billing state) is written to logs</li>
   <li>Root operations are logged locally only</li>
 </ul>
 
@@ -93,19 +110,12 @@ Effective Date: February 1, 2026</p>
 <p>We may update this Privacy Policy occasionally. Changes will be posted to this page with an updated "Last Updated" date. Continued use of the App after changes constitutes acceptance of the new policy.</p>
 
 <h2>Your Rights</h2>
-<p>Since we don't collect personal data, there's no data to:</p>
-<ul>
-  <li>Request access to</li>
-  <li>Request deletion of</li>
-  <li>Request correction of</li>
-  <li>Export</li>
-</ul>
-<p>Your data is already entirely under your control on your device.</p>
+<p>You control all on-device data (files, command history, preferences, snapshots) directly, since it never leaves your device. For data held by Google on our behalf (Firebase and AdMob identifiers), Google's own privacy controls apply: <a href="https://myaccount.google.com/data-and-privacy">https://myaccount.google.com/data-and-privacy</a></p>
 
 <h2>Open Source</h2>
 <p>ObsidianBox Modern's source code is available at:<br>
 <a href="https://github.com/canuk40/ObsidianBox-Modern">https://github.com/canuk40/ObsidianBox-Modern</a></p>
-<p>You can review exactly how the App handles (or rather, doesn't handle) your data.</p>
+<p>You can review exactly how the App handles your data.</p>
 
 <h2>Contact</h2>
 <ul>
@@ -116,15 +126,15 @@ Effective Date: February 1, 2026</p>
 <h2>Summary</h2>
 <table>
   <tr><th>Question</th><th>Answer</th></tr>
-  <tr><td>Do you collect personal data?</td><td><strong>No</strong></td></tr>
-  <tr><td>Do you track usage?</td><td><strong>No</strong></td></tr>
-  <tr><td>Do you show ads?</td><td><strong>No</strong></td></tr>
-  <tr><td>Do you sell data?</td><td><strong>No</strong> (we don't have any)</td></tr>
-  <tr><td>Where is my data stored?</td><td><strong>On your device only</strong></td></tr>
-  <tr><td>Is the app open source?</td><td><strong>Yes</strong></td></tr>
+  <tr><td>Do you collect personal data (name, email, etc.)?</td><td><strong>No</strong></td></tr>
+  <tr><td>Do you use crash reporting / analytics?</td><td><strong>Yes</strong> (Firebase Crashlytics &amp; Analytics)</td></tr>
+  <tr><td>Do you show ads?</td><td><strong>Yes, for free-tier users only</strong> (Google AdMob) — Pro users see none</td></tr>
+  <tr><td>Do you sell data?</td><td><strong>No</strong></td></tr>
+  <tr><td>Where are my files and commands stored?</td><td><strong>On your device only</strong></td></tr>
+  <tr><td>Is the app open source?</td><td><strong>Yes</strong> (safety/diagnostic layer)</td></tr>
 </table>
 
-<footer>Your privacy matters. Your device, your data, your control.</footer>
+<footer>We only collect what's needed to keep the app stable, secure, and (for free users) ad-supported — your files and commands never leave your device.</footer>
 
 </body>
 </html>
